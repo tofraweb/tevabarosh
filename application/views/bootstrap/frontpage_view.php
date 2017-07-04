@@ -1,3 +1,16 @@
+<!--=== Slider ===-->
+<div class="slider-inner">
+		<div id="da-slider" class="da-slider">
+				<div class="da-slide"></div>
+				<div class="da-slide"></div>
+				<div class="da-arrows">
+						<span class="da-arrows-prev"></span>
+						<span class="da-arrows-next"></span>
+				</div>
+		</div>
+</div><!--/slider-->
+<!--=== End Slider ===-->
+
 <!--=== Content Part ===-->
 <div class="container content-sm">
 		<!-- Recent Works -->
@@ -70,7 +83,7 @@
 						<div class="thumbnails thumbnail-style thumbnail-kenburn">
 								<div class="thumbnail-img">
 										<div class="overflow-hidden">
-												<img class="img-responsive" src="<?php echo base_url();?>assets/img/media/upload/<?php echo $species->picture;?>" alt="">
+												<a class="hover-effect" href="<?php echo base_url();?>index.php/catalog/getSpecies/<?php echo $species->id;?>"><img class="img-responsive" src="<?php echo base_url();?>assets/img/media/upload/<?php echo $species->picture;?>" alt=""></a>
 										</div>
 										<a class="btn-more hover-effect" href="<?php echo base_url();?>index.php/catalog/getSpecies/<?php echo $species->id;?>"><?php echo ' '.$species->name_lat;?></a>
 								</div>
@@ -124,9 +137,6 @@
 									foreach ($latest_photos as $species) {?>
 										<div class="item <?php if($cnt == 0) echo 'active';?>">
 												<img src="<?php echo base_url();?>assets/img/media/upload/<?php echo $species->picture;?>" alt="">
-												<div class="carousel-caption">
-														<p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
-												</div>
 										</div>
 										<?php $cnt++; } ?>
 								</div>
@@ -151,7 +161,7 @@
 						<div class="thumbnails thumbnail-style thumbnail-kenburn">
 								<div class="thumbnail-img">
 										<div class="overflow-hidden">
-												<img class="img-responsive" src="<?php echo base_url();?>assets/img/media/upload/<?php echo $species->picture;?>" alt="">
+											<a class="hover-effect" href="<?php echo base_url();?>index.php/catalog/getSpecies/<?php echo $species->id;?>"><img class="img-responsive" src="<?php echo base_url();?>assets/img/media/upload/<?php echo $species->picture;?>" alt=""></a>
 										</div>
 										<a class="btn-more hover-effect" href="<?php echo base_url();?>index.php/catalog/getSpecies/<?php echo $species->id;?>"><?php echo ' '.$species->name_lat;?></a>
 								</div>

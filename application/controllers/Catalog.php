@@ -183,7 +183,7 @@ class Catalog extends CI_Controller {
   }
 
   public function getSpecies($id){
-    $limit = 4;
+    $limit = 100;
     $species = $this->catalog_model->single_species_array($id);
     $all_pictures = $this->catalog_model->get_pictures($id, null, '100');
     $premium_picture = $this->catalog_model->get_pictures($id, 'premium', '3');

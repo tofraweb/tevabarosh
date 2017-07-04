@@ -97,16 +97,16 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
             <div class="container">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="font-size:20px">
                     <!-- Home -->
                     <li class="active">
-                        <a href="<?php echo base_url();?>" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="<?php echo base_url();?>">
                             בית
                         </a>
                     </li>
                     <!-- End Home -->
 
-                    <!-- Pages -->
+                    <!-- Plants -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
                             קטלוג צמחים
@@ -131,11 +131,11 @@
                             <!-- End Sub Level Menu -->
                         </ul>
                     </li>
-                    <!-- End Pages -->
+                    <!-- End Plants -->
 
                     <!-- Birds -->
                     <li>
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="<?php echo base_url();?>catalog/?cat=2">
                             קטלוג ציפורים
                         </a>
                     </li>
@@ -249,6 +249,24 @@
                     </li>
                     <!-- End Blog -->
 
+                    <!-- Personal -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                            שלום טומי
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- Service Pages -->
+                            <li>
+                                <a href="<?php echo base_url();?>">הפרופיל שלי</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url();?>catalog">הגן שלי</a>
+                            </li>
+                            <!-- End Sub Level Menu -->
+                        </ul>
+                    </li>
+                    <!-- End Personal -->
+
                     <!-- Search Block -->
                     <li>
                         <i class="search fa fa-search search-btn"></i>
@@ -269,31 +287,3 @@
         </div><!--/navbar-collapse-->
     </div>
     <!--=== End Header ===-->
-
-    <!--=== Slider ===-->
-    <!-- <div class="slider-inner">
-        <div id="da-slider" class="da-slider">
-            <div class="da-slide">
-                <h2><i>CLEAN &amp; FRESH</i> <br /> <i>FULLY RESPONSIVE</i> <br /> <i>DESIGN</i></h2>
-                <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-                <div class="da-img"><img class="img-responsive" src="../assets/plugins/parallax-slider/img/1.png" alt=""></div>
-            </div>
-            <div class="da-slide">
-                <h2><i>RESPONSIVE VIDEO</i> <br /> <i>SUPPORT AND</i> <br /> <i>MANY MORE</i></h2>
-                <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i></p>
-                <div class="da-img">
-                    <iframe src="http://player.vimeo.com/video/47911018" width="530" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                </div>
-            </div>
-            <div class="da-slide">
-                <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
-                <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
-                <div class="da-img"><img src="../assets/plugins/parallax-slider/img/html5andcss3.png" alt="image01" /></div>
-            </div>
-            <div class="da-arrows">
-                <span class="da-arrows-prev"></span>
-                <span class="da-arrows-next"></span>
-            </div>
-        </div>
-    </div><!--/slider-->
-    <!--=== End Slider ===-->
