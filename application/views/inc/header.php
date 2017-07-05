@@ -68,19 +68,17 @@
                 <ul class="loginbar pull-right">
                     <li class="hoverSelector">
                         <i class="fa fa-globe"></i>
-                        <a>Languages</a>
+                        <a>שפות</a>
                         <ul class="languages hoverSelectorBlock">
                             <li class="active">
-                                <a href="#">English <i class="fa fa-check"></i></a>
+                                <a href="#">עברית <i class="fa fa-check"></i></a>
                             </li>
-                            <li><a href="#">Spanish</a></li>
-                            <li><a href="#">Russian</a></li>
-                            <li><a href="#">German</a></li>
+                            <li><a href="#">Magyar</a></li>
                         </ul>
                     </li>
                     <li class="topbar-devider"></li>
-                    <li><a href="page_faq.html">שאלות ותשובות</a></li>
-                    <li class="topbar-devider"></li>
+                    <!-- <li><a href="page_faq.html">שאלות ותשובות</a></li>
+                    <li class="topbar-devider"></li> -->
                     <li><a href="<?php echo base_url();?>admin">התחבר</a></li>
                 </ul>
             </div>

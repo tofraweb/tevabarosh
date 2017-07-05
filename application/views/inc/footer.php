@@ -63,57 +63,42 @@
             </div>
         </div><!--/footer-->
 
-        <div class="copyright">
+        <!-- Social Links -->
+        <div class="col-md-6">
+            <ul class="footer-socials list-inline"  style="text-align:right; margin-right:170px" >
+                <li>
+                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
+                        <i class="fa fa-pinterest"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End Social Links -->
+        <div class="copyright"  style="text-align:left">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
                         <p>
-                            2015 &copy; All Rights Reserved.
-                           <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                            2017 &copy; All Rights Reserved.
+                           <a href="http://tofraweb.com/">Developed by TofraWeb</a>
                         </p>
                     </div>
 
-                    <!-- Social Links -->
-                    <div class="col-md-6">
-                        <ul class="footer-socials list-inline">
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Skype">
-                                    <i class="fa fa-skype"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Pinterest">
-                                    <i class="fa fa-pinterest"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title="" data-original-title="Dribbble">
-                                    <i class="fa fa-dribbble"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Social Links -->
                 </div>
             </div>
         </div><!--/copyright-->
@@ -134,7 +119,7 @@
 <script src="<?php echo base_url();?>assets/plugins/parallax-slider/js/modernizr.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/owl-carousel2/owl.carousel.min.js"></script>
-<!-- JS Customization -->
+<!-- JS Customizat
 <script src="<?php echo base_url();?>assets/js/custom.js"></script>
 <!-- JS Page Level -->
 <script src="<?php echo base_url();?>assets/js/app.js"></script>
@@ -147,7 +132,7 @@
         OwlCarousel.initOwlCarousel();
         StyleSwitcher.initStyleSwitcher();
         ParallaxSlider.initParallaxSlider();
-        OwlRecentWorks.initOwlRecentWorksV1(); 
+        OwlRecentWorks.initOwlRecentWorksV1();
     });
 </script>
 <!--[if lt IE 9]>

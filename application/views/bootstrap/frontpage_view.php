@@ -1,5 +1,5 @@
 <!--=== Slider ===-->
-<div class="slider-inner">
+<!-- <div class="slider-inner">
 		<div id="da-slider" class="da-slider">
 				<div class="da-slide"></div>
 				<div class="da-slide"></div>
@@ -8,7 +8,7 @@
 						<span class="da-arrows-next"></span>
 				</div>
 		</div>
-</div><!--/slider-->
+</div><!--/slider--> -->
 <!--=== End Slider ===-->
 
 <!--=== Content Part ===-->

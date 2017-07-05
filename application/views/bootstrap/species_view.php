@@ -23,7 +23,8 @@
             <div class="carousel slide carousel-v1" id="myCarousel">
                 <div class="carousel-inner">
                   <?php
-                  $cnt = 0;
+                  if($pictures){
+                    $cnt = 0;
                   foreach ($pictures as $picture) {?>
                     <div class="item <?php if($cnt == 0) echo 'active';?>">
                         <img alt="" src="<?php echo base_url();?>assets/img/media/upload/<?php echo $picture->filename;?>">
@@ -31,7 +32,9 @@
                             <p>Facilisis odio, dapibus ac justo acilisis gestinas.</p>
                         </div> -->
                     </div>
-                  <?php $cnt++; } ?>
+                  <?php $cnt++; } } else { ?>
+                    <img alt="" src="<?php echo base_url();?>assets/img/no-image.jpg">
+                  <?php } ?>
                 </div>
 
                 <div class="carousel-arrow">
@@ -123,6 +126,12 @@
                 <a class="fancybox img-hover-v1" href="<?php echo base_url();?>index.php/catalog/getSpecies/<?php echo $sp->id;?>">
                   <img class="img-responsive" src="<?php echo base_url();?>assets/img/media/upload/<?php echo $sp->picture;?>" alt="">
                 </a>
+                <h4 style="margin-top:12px">
+                  <a href="<?php echo base_url();?>index.php/catalog/getSpecies/<?php echo $sp->id;?>"><?php echo $sp->name_he;?></a>
+                  <small>
+                    <?php echo $sp->name_lat;?>
+                  </small>
+                </h4>
               </div>
             <?php } ?>
           </div>
