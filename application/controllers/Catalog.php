@@ -196,7 +196,7 @@ class Catalog extends CI_Controller {
     $order = $this->catalog_model->get_orders($family->order_id);
     $species_category = $this->catalog_model->get_category_details($species[0]->category_id);
     $session_data = $this->session->userdata('logged_in');
-    $species_properties = $this->catalog_model->get_species_properties($id, $species_category->type);
+    $species_properties = $this->catalog_model->get_species_properties($id, $species_category->kingdom_id);
     $species_in_family = $this->getSpeciesListInFamily($genus->family_id, true);
     $species_in_order = $this->getSpeciesListInOrder($family->order_id, true);
     //get limited random pieces from family

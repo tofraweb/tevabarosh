@@ -268,6 +268,29 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function bird_properties_management()
+	{
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('bird_properties');
+			$crud->set_subject('Bird Properties');
+		//	$crud->columns('species_id','light_conditions','watering', 'blooming_season');
+			$crud->required_fields('species_id');
+			$crud->set_relation('species_id','species','name_he');
+			$crud->set_relation('rlc_id','rlc','name_he');
+
+
+			$output = $crud->render();
+
+			$this->_example_output($output, 'אפיון צמחים');
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+	}
+
 	public function resize_img_after_upload($uploader_response,$field_info, $files_to_upload) {
 		$this->load->library('image_moo');
 

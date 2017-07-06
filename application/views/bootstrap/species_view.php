@@ -46,17 +46,36 @@
                     </a>
                 </div>
             </div>
+            <?php if($category->kingdom_id == 1) { ?> 
             <!-- Icons -->
             <div style="text-align:center; margin-top:15px;">
-              <i class="fa fa-sun-o color-green"></i> צל מלה, צל חלקי
-              &nbsp;&nbsp;
-              <i class="fa fa-tint color-green"></i>  השקייה מועטה
-              &nbsp;&nbsp;
-              <i class="fa fa-paint-brush color-green"></i> לבן, צהוב, ורוד
-              &nbsp;&nbsp;
-              <i class="fa fa-calendar color-green"></i> אביב, קיץ
+              <?php if($properties->light_conditions) { ?>
+                <i class="fa fa-sun-o color-green" title="תנאי אור"></i> <?php echo $properties->light_conditions;?>
+                &nbsp;&nbsp;
+              <?php } ?>
+              <?php if($properties->watering) { ?>
+                <i class="fa fa-tint color-green" title="צריכת מיים"></i>  <?php echo $properties->watering;?>
+                &nbsp;&nbsp;
+              <?php } ?>
+              <?php if($properties->flower_color) { ?>
+                <i class="fa fa-paint-brush color-green" title="צבע הפרח"></i> <?php echo $properties->flower_color;?>
+                &nbsp;&nbsp;
+              <?php } ?>
+              <?php if($properties->blooming_season) { ?>
+                <i class="fa fa-calendar color-green" title="עונת פריחה"></i> <?php echo $properties->blooming_season;?>
+              <?php } ?>
             </div>
             <!-- End Icons -->
+            <?php } else {?>
+              <!-- Icons -->
+              <div style="text-align:center; margin-top:15px;">
+                <?php if($properties->name_he) { ?>
+                  <i class="fa fa fa-safari color-<?php echo $properties->color;?>"></i> <?php echo $properties->name_he;?> <?php echo $properties->rlc_code;?>
+                  &nbsp;&nbsp;
+                <?php } ?>
+              </div>
+              <!-- End Icons -->
+            <?php } ?>
         </div>
         <!-- End Carousel -->
 
@@ -102,6 +121,46 @@
                     </tbody>
                 </table>
             </div>
+            <?php if($logged_in) { ?>
+            <table class="table" style="margin-top:-30px">
+                <thead>
+                    <tr>
+                        <th>מין</th>
+                        <th>תמונות</th>
+                        <th>מאפיינים</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: #629430; font-weight: bold;">
+                          <small><a target="_blank" href="<?php echo base_url();?>admin/species_management/edit/<?php echo $species[0]->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                        </td>
+                        <td>
+                          <small><a target="_blank" href="<?php echo base_url();?>admin/pictures_management/<?php echo $species[0]->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                        </td>
+                        <?php if($category->kingdom_id == 1) {
+                          if($properties->id) { ?>
+                          <td>
+                            <small><a target="_blank" href="<?php echo base_url();?>admin/plant_properties_management/edit/<?php echo $properties->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                          </td>
+                          <?php } else {?>
+                          <td>
+                            <small><a target="_blank" href="<?php echo base_url();?>admin/plant_properties_management/add"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                          </td>
+                        <?php } } else {
+                          if($properties->id) { ?>
+                          <td>
+                            <small><a target="_blank" href="<?php echo base_url();?>admin/bird_properties_management/edit/<?php echo $properties->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                          </td>
+                          <?php } else {?>
+                          <td>
+                            <small><a target="_blank" href="<?php echo base_url();?>admin/bird_properties_management/add"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                          </td>
+                        <?php } } ?>
+                    </tr>
+                </tbody>
+            </table>
+            <?php } ?>
             <!--End Basic Table-->
             <div class="tag-box tag-box-v2">
                 <p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.</p>

@@ -51,6 +51,7 @@
 
                <!-- Tabs Widget -->
                <div class="headline headline-md"><h2>מיון לפי</h2></div>
+               <?php if($category->kingdom_id == 1 || $cat_type == 1) { ?>
                <div class="tab-v2 margin-bottom-40">
                    <ul class="nav nav-tabs">
                        <li class="active"><a data-toggle="tab" href="#home-1">השקיה <i class="fa fa-tint color-green"></i></a></li>
@@ -167,6 +168,7 @@
                       </div>
                    </div>
                </div>
+               <?php } ?>
                <!-- End Tabs Widget -->
 
                <!-- Photo Stream -->

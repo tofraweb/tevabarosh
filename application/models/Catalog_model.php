@@ -312,16 +312,23 @@ Class Catalog_model extends CI_Model
               exit;
           }
       }else{
+        // echo "<pre>";
+        // var_dump($id);
+        // echo "</pre>";
+        // exit;
         try{
-            $sql = "SELECT * FROM plant_properties WHERE species_id = ?";
+            $sql = "SELECT rlc.name_he, rlc.rlc_code, rlc.color, bird_properties.id
+              FROM bird_properties
+              INNER JOIN rlc ON bird_properties.rlc_id = rlc.id
+              WHERE bird_properties.species_id = ?";
             $result = $this->db->query($sql,$id);
           }catch(Exception $e){
               echo "Unable to retrieve results";
               exit;
           }
       }
-        $classification_name = $result->result();
-        return $classification_name[0];
+        $properties = $result->result();
+        return $properties[0];
     }
 
     public function getFamilyListInOrder($id) {
