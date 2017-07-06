@@ -1,33 +1,32 @@
 
     <!--=== Footer Version 1 ===-->
-    <div class="footer-v1">
+    <div class="footer-v1" style="margin-top:80px">
         <div class="footer">
             <div class="container">
                 <div class="row">
                     <!-- About -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <a href="index.html"><img id="logo-footer" class="footer-logo" src="../assets/img/logo2-default.png" alt=""></a>
-                        <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
-                        <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>
+                        <a href="<?php echo base_url();?>"><img id="logo-footer" class="footer-logo" src="<?php echo base_url();?>assets/img/tevabarosh_logo_transparent.png" alt=""></a>
+                        <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קולורס מונפרד אדנדום סילקוף, מרגשי ומרגשח. עמחליף קוואזי במר מודוף. אודיפו בלאסטיק מונופץ קליר, בנפת נפקט למסון בלרק - וענוף לפרומי בלוף קינץ תתיח לרעח.</p>
                     </div><!--/col-md-3-->
                     <!-- End About -->
 
                     <!-- Latest -->
                     <div class="col-md-3 md-margin-bottom-40">
                         <div class="posts">
-                            <div class="headline"><h2>Latest Posts</h2></div>
+                            <div class="headline"><h2>מאמרים אחרונים</h2></div>
                             <ul class="list-unstyled latest-list">
                                 <li>
-                                    <a href="#">Incredible content</a>
-                                    <small>May 8, 2014</small>
+                                    <a href="#">תוכן מעולה</a>
+                                    <small>מאי 8, 2014</small>
                                 </li>
                                 <li>
-                                    <a href="#">Best shoots</a>
-                                    <small>June 23, 2014</small>
+                                    <a href="#">תמונות נבחרות</a>
+                                    <small>יוני 23, 2014</small>
                                 </li>
                                 <li>
-                                    <a href="#">New Terms and Conditions</a>
-                                    <small>September 15, 2014</small>
+                                    <a href="#">תנאים והגבלות</a>
+                                    <small>ספטמבר 15, 2014</small>
                                 </li>
                             </ul>
                         </div>
@@ -36,26 +35,25 @@
 
                     <!-- Link List -->
                     <div class="col-md-3 md-margin-bottom-40">
-                        <div class="headline"><h2>Useful Links</h2></div>
+                        <div class="headline"><h2>קישורים שימושיים</h2></div>
                         <ul class="list-unstyled link-list">
-                            <li><a href="#">About us</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Portfolio</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Latest jobs</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Community</a><i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Contact us</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">על עצמינו</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">פורטפוליו</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">מנויים</a><i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">צור קשר</a><i class="fa fa-angle-right"></i></li>
                         </ul>
                     </div><!--/col-md-3-->
                     <!-- End Link List -->
 
                     <!-- Address -->
                     <div class="col-md-3 map-img md-margin-bottom-40">
-                        <div class="headline"><h2>Contact Us</h2></div>
+                        <div class="headline"><h2>צור קשר</h2></div>
                         <address class="md-margin-bottom-40">
-                            25, Lorem Lis Street, Orange <br />
-                            California, US <br />
-                            Phone: 800 123 3456 <br />
-                            Fax: 800 123 3456 <br />
-                            Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                            יצחק הלוי 9, חולון <br />
+                            ישראל <br />
+                            טל: 800 123 3456 <br />
+                            פקס: 800 123 3456 <br />
+                            אימייל: <a href="mailto:info@tevabarosh.co.il" class="">info@tevabarosh.co.il</a>
                         </address>
                     </div><!--/col-md-3-->
                     <!-- End Address -->
@@ -94,7 +92,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <p>
-                            2017 &copy; All Rights Reserved.
+                            2017 &copy; כל הזכויות שמורות.
                            <a href="http://tofraweb.com/">Developed by TofraWeb</a>
                         </p>
                     </div>
@@ -119,7 +117,7 @@
 <script src="<?php echo base_url();?>assets/plugins/parallax-slider/js/modernizr.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/parallax-slider/js/jquery.cslider.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/owl-carousel2/owl.carousel.min.js"></script>
-<!-- JS Customizat
+<!-- JS Customizat -->
 <script src="<?php echo base_url();?>assets/js/custom.js"></script>
 <!-- JS Page Level -->
 <script src="<?php echo base_url();?>assets/js/app.js"></script>

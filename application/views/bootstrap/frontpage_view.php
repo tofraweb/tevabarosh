@@ -8,7 +8,7 @@
 						<span class="da-arrows-next"></span>
 				</div>
 		</div>
-</div><!--/slider--> -->
+</div><!--/slider--> 
 <!--=== End Slider ===-->
 
 <!--=== Content Part ===-->

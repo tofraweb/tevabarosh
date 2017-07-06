@@ -51,6 +51,12 @@
 
                <!-- Tabs Widget -->
                <div class="headline headline-md"><h2>מיון לפי</h2></div>
+               <?php
+              //  echo "<pre>";
+              //  var_dump($cat_type, $category->kingdom_id);
+              //  exit;
+              //  echo "</pre>";
+               ?>
                <?php if($category->kingdom_id == 1 || $cat_type == 1) { ?>
                <div class="tab-v2 margin-bottom-40">
                    <ul class="nav nav-tabs">
@@ -219,7 +225,7 @@
           </div>
           <?php } ?>
           <?php if($search != null){ ?>
-          <div class="headline">
+          <div class="headline" style="text-align:right">
             <h2>
                   <?php  echo "תוצאות חיפוש עבור ביטוי - ";
                   echo '"'.htmlspecialchars($search).'"'; ?>
@@ -276,4 +282,3 @@
         <div class="text-center">
           .
         <div>
-        <hr>

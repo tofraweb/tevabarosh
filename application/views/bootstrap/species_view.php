@@ -20,6 +20,9 @@
   <div class="row portfolio-item margin-bottom-50">
         <!-- Carousel -->
         <div class="col-md-6">
+            <div class="headline">
+              <h4>גלריית תמונות</h4>
+            </div>
             <div class="carousel slide carousel-v1" id="myCarousel">
                 <div class="carousel-inner">
                   <?php
@@ -46,7 +49,9 @@
                     </a>
                 </div>
             </div>
-            <?php if($category->kingdom_id == 1) { ?> 
+            <!-- End Carousel -->
+
+            <?php if($category->kingdom_id == 1) { ?>
             <!-- Icons -->
             <div style="text-align:center; margin-top:15px;">
               <?php if($properties->light_conditions) { ?>
@@ -77,97 +82,127 @@
               <!-- End Icons -->
             <?php } ?>
         </div>
-        <!-- End Carousel -->
+
 
         <!-- Content Info -->
         <div class="col-md-6">
-            <!--Basic Table-->
-            <div class="panel panel-green margin-bottom-40">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-tasks"></i>טקסונומיה - סיווג הצמח</h3>
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th style="color: #629430; font-weight: bold;">שם
-                              <?php if($logged_in){ ?>
-                                <small><a target="_blank" href="<?php echo base_url();?>admin/species_management/edit/<?php echo $species[0]->id;?>/?id=<?php echo $species[0]->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
-                              <?php } ?>
-                            </th>
-                            <th><?php echo $species[0]->name_he;?></th>
-                            <th><?php echo $species[0]->name_lat;?></th>
-                            <th class="hidden-sm"><?php echo $species[0]->name_hu;?></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td style="color: #629430; font-weight: bold;">סוג</td>
-                            <td><a href="<?php echo base_url();?>catalog/getSpeciesListInGenus/<?php echo $genus->id;?>"><?php echo $genus->name_he;?></a></td>
-                            <td><?php echo $genus->name_lat;?></td>
-                            <td class="hidden-sm"><?php echo $genus->name_hu;?></td>
-                        </tr>
-                        <tr>
-                            <td style="color: #629430; font-weight: bold;">משפחה</td>
-                            <td><a href="<?php echo base_url();?>catalog/getSpeciesListInFamily/<?php echo $family->id;?>"><?php echo $family->name_he;?></a></td>
-                            <td><?php echo $family->name_lat;?></td>
-                            <td class="hidden-sm"><?php echo $family->name_hu;?></td>
-                        </tr>
-                        <tr>
-                            <td style="color: #629430; font-weight: bold;">סדרה</td>
-                            <td><a href="<?php echo base_url();?>catalog/getSpeciesListInOrder/<?php echo $order->id;?>"><?php echo $order->name_he;?></a></td>
-                            <td><?php echo $order->name_lat;?></td>
-                            <td class="hidden-sm"><?php echo $order->name_hu;?></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <?php if($logged_in) { ?>
-            <table class="table" style="margin-top:-30px">
-                <thead>
-                    <tr>
-                        <th>מין</th>
-                        <th>תמונות</th>
-                        <th>מאפיינים</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="color: #629430; font-weight: bold;">
-                          <small><a target="_blank" href="<?php echo base_url();?>admin/species_management/edit/<?php echo $species[0]->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
-                        </td>
-                        <td>
-                          <small><a target="_blank" href="<?php echo base_url();?>admin/pictures_management/<?php echo $species[0]->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
-                        </td>
-                        <?php if($category->kingdom_id == 1) {
-                          if($properties->id) { ?>
-                          <td>
-                            <small><a target="_blank" href="<?php echo base_url();?>admin/plant_properties_management/edit/<?php echo $properties->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
-                          </td>
-                          <?php } else {?>
-                          <td>
-                            <small><a target="_blank" href="<?php echo base_url();?>admin/plant_properties_management/add"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
-                          </td>
-                        <?php } } else {
-                          if($properties->id) { ?>
-                          <td>
-                            <small><a target="_blank" href="<?php echo base_url();?>admin/bird_properties_management/edit/<?php echo $properties->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
-                          </td>
-                          <?php } else {?>
-                          <td>
-                            <small><a target="_blank" href="<?php echo base_url();?>admin/bird_properties_management/add"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
-                          </td>
-                        <?php } } ?>
-                    </tr>
-                </tbody>
-            </table>
-            <?php } ?>
-            <!--End Basic Table-->
-            <div class="tag-box tag-box-v2">
-                <p>Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat.</p>
-            </div>
+
+            <!-- Tab v2 -->
+             <div class="tab-v2" style="margin-bottom:30px">
+                 <ul class="nav nav-tabs">
+                     <li class="active"><a href="#taxonomy" data-toggle="tab">טקסונומיה</a></li>
+                     <li><a href="#description" data-toggle="tab">תיאור כללי</a></li>
+                 </ul>
+                 <div class="tab-content">
+                     <div class="tab-pane fade in active" id="taxonomy">
+                       <!--Basic Table-->
+                       <div class="panel margin-bottom-20" style="margin-top:5px">
+                           <!-- <div class="panel-heading">
+                               <h3 class="panel-title"><i class="fa fa-tasks"></i>טקסונומיה - סיווג הצמח</h3>
+                           </div> -->
+                           <table class="table table-striped table-hover">
+                               <thead>
+                                   <tr>
+                                       <th style="font-weight: bold;">שם</th>
+                                       <th><?php echo $species[0]->name_he;?></th>
+                                       <th><?php echo $species[0]->name_lat;?></th>
+                                       <th class="hidden-sm"><?php echo $species[0]->name_hu;?></th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr>
+                                       <td style="font-weight: bold;">סוג</td>
+                                       <td><a href="<?php echo base_url();?>catalog/getSpeciesListInGenus/<?php echo $genus->id;?>"><b><?php echo $genus->name_he;?></b></a></td>
+                                       <td><?php echo $genus->name_lat;?></td>
+                                       <td class="hidden-sm"><?php echo $genus->name_hu;?></td>
+                                   </tr>
+                                   <tr>
+                                       <td style="font-weight: bold;">משפחה</td>
+                                       <td><a href="<?php echo base_url();?>catalog/getSpeciesListInFamily/<?php echo $family->id;?>"><b><?php echo $family->name_he;?></b></a></td>
+                                       <td><?php echo $family->name_lat;?></td>
+                                       <td class="hidden-sm"><?php echo $family->name_hu;?></td>
+                                   </tr>
+                                   <tr>
+                                       <td style="font-weight: bold;">סדרה</td>
+                                       <td><a href="<?php echo base_url();?>catalog/getSpeciesListInOrder/<?php echo $order->id;?>"><b><?php echo $order->name_he;?></b></a></td>
+                                       <td><?php echo $order->name_lat;?></td>
+                                       <td class="hidden-sm"><?php echo $order->name_hu;?></td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                       <?php if($logged_in) { ?>
+                      <hr>
+                       <table class="table" style="margin-top:-30px">
+                           <thead>
+                               <tr>
+                                   <th>מין</th>
+                                   <th>תמונות</th>
+                                   <th>מאפיינים</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td style="color: #629430; font-weight: bold;">
+                                     <small><a target="_blank" href="<?php echo base_url();?>admin/species_management/edit/<?php echo $species[0]->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                                   </td>
+                                   <td>
+                                     <small><a target="_blank" href="<?php echo base_url();?>admin/pictures_management/<?php echo $species[0]->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                                   </td>
+                                   <?php if($category->kingdom_id == 1) {
+                                     if($properties->id) { ?>
+                                     <td>
+                                       <small><a target="_blank" href="<?php echo base_url();?>admin/plant_properties_management/edit/<?php echo $properties->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                                     </td>
+                                     <?php } else {?>
+                                     <td>
+                                       <small><a target="_blank" href="<?php echo base_url();?>admin/plant_properties_management/add"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                                     </td>
+                                   <?php } } else {
+                                     if($properties->id) { ?>
+                                     <td>
+                                       <small><a target="_blank" href="<?php echo base_url();?>admin/bird_properties_management/edit/<?php echo $properties->id;?>"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                                     </td>
+                                     <?php } else {?>
+                                     <td>
+                                       <small><a target="_blank" href="<?php echo base_url();?>admin/bird_properties_management/add"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></small>
+                                     </td>
+                                   <?php } } ?>
+                               </tr>
+                           </tbody>
+                       </table>
+                       <?php } ?>
+                       <!--End Basic Table-->
+                     </div>
+                     <div class="tab-pane fade in" id="description">
+                       <!--Basic Species Description -->
+                       <?php if ($properties->description) { ?>
+                       <!-- <div class="tag-box tag-box-v2"> -->
+                         <div class="headline">
+                           <h5>תיאור כללי</h5>
+                         </div>
+                         <?php echo $properties->description;?>
+                       <!-- </div> -->
+                       <?php } else { ?>
+                       <div class="tag-box tag-box-v2">
+                         <div class="headline">
+                           <h5>תיאור כללי</h5>
+                         </div>
+                         <p>אין עדיין תיואר עבור מין זה.</p>
+                       </div>
+                       <?php } ?>
+                       <!--End Basic Species Description -->
+                     </div>
+                 </div>
+             </div>
+             <!-- End Tab v1 -->
+
+            <!--Back Button -->
             <div style="text-align:center">
               <a class="btn-u btn-u-large" href="javascript:history.back()">חזרה</a>
             </div>
+            <!--End Back Button -->
+
         </div>
         <!-- End Content Info -->
     </div><!--/row-->
