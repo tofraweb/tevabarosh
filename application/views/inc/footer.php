@@ -1,6 +1,6 @@
 
     <!--=== Footer Version 1 ===-->
-    <div class="footer-v1" style="margin-top:80px">
+    <div class="footer-v1" style="margin-top:50px">
         <div class="footer">
             <div class="container">
                 <div class="row">

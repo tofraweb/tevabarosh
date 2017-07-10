@@ -295,6 +295,7 @@ class Catalog extends CI_Controller {
       $data['catalog'] = $species_list;
       $data['current_order'] = $order;
       $data['all_orders'] = $all_orders;
+      $data['families_in_order'] = $family_arr;
       $data['kingdom'] = $order->kingdom_id;
       $data['classification_sidebar_header'] = $classification_sidebar_header;
       $this->load->view('inc/header');
@@ -336,6 +337,7 @@ class Catalog extends CI_Controller {
       $data['catalog'] = $species_list;
       $data['order'] = $order;
       $data['current_family'] = $family;
+      $data['genus_in_family'] = $genus_list;
       $data['all_families'] = $all_families;
       //$data['kingdom'] = $order->kingdom_id;
       $this->load->view('inc/header');

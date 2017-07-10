@@ -92,6 +92,9 @@
                  <ul class="nav nav-tabs">
                      <li class="active"><a href="#taxonomy" data-toggle="tab">טקסונומיה</a></li>
                      <li><a href="#description" data-toggle="tab">תיאור כללי</a></li>
+                     <?php if($category->kingdom_id == 2) { ?>
+                     <li><a href="#identification-audio" data-toggle="tab">זיהוי לפי קול</a></li>
+                    <?php }?>
                  </ul>
                  <div class="tab-content">
                      <div class="tab-pane fade in active" id="taxonomy">
@@ -184,7 +187,7 @@
                          <?php echo $properties->description;?>
                        <!-- </div> -->
                        <?php } else { ?>
-                       <div class="tag-box tag-box-v2">
+                       <div class="tag-box">
                          <div class="headline">
                            <h5>תיאור כללי</h5>
                          </div>
@@ -192,6 +195,47 @@
                        </div>
                        <?php } ?>
                        <!--End Basic Species Description -->
+                     </div>
+                     <div class="tab-pane fade in" id="identification-audio">
+                       <!--Audio Itentification -->
+                       <div>
+                         <table >
+                           <?php if($audio->filename_song) { ?>
+                           <tr>
+                             <th class="info" style="width:30%">קול שירה</th>
+                             <td class="centered-td">
+                               <audio controls>
+                                 <source src="<?php echo base_url();?>assets/uploads/audio/song/<?php echo $audio->filename_song;?>">
+                               Your browser does not support the audio element.
+                               </audio>
+                             </td>
+                           </tr>
+                           <?php } ?>
+                           <?php if($audio->filename_call) { ?>
+                           <tr>
+                             <th class="info" style="width:30%">קול קריאה</th>
+                             <td class="centered-td">
+                               <audio controls>
+                                 <source src="<?php echo base_url();?>assets/uploads/audio/call/<?php echo $audio->filename_call;?>">
+                               Your browser does not support the audio element.
+                               </audio>
+                             </td>
+                           </tr>
+                           <?php } ?>
+                           <?php if($audio->filename_alarm) { ?>
+                           <tr>
+                             <th class="info" style="width:30%">קול הזהרה</th>
+                             <td class="centered-td">
+                               <audio controls>
+                                 <source src="<?php echo base_url();?>assets/uploads/audio/alarm/<?php echo $audio->filename_alarm;?>">
+                               Your browser does not support the audio element.
+                               </audio>
+                             </td>
+                           </tr>
+                           <?php } ?>
+                         </table>
+                       </div>
+                       <!--Audio Itentification -->
                      </div>
                  </div>
              </div>
