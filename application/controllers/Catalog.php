@@ -393,10 +393,11 @@ class Catalog extends CI_Controller {
     $data['search'] = $this->search;
     $data['section'] = $this->section;
     $data['total_items'] = $this->total_items;
-    //$data['pageTitle'] = $this->catalog_model->get_classification_name($id, 'genus')->name_he;
+    //$data['pageTitle'] = $this->pageTitle;
     $data['pagination'] = null;
     $data['cat_type'] = $type;
     $data['catalog'] = $sorted_species;
+    $data['sort_value'] = $value;
     $this->load->view('inc/header');
     $this->load->view('bootstrap/catalog_view',$data);
     $this->load->view('inc/footer');

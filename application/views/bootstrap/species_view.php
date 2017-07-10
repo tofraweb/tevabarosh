@@ -92,7 +92,7 @@
                  <ul class="nav nav-tabs">
                      <li class="active"><a href="#taxonomy" data-toggle="tab">טקסונומיה</a></li>
                      <li><a href="#description" data-toggle="tab">תיאור כללי</a></li>
-                     <?php if($category->kingdom_id == 2) { ?>
+                     <?php if($category->kingdom_id == 2 && $audio) { ?>
                      <li><a href="#identification-audio" data-toggle="tab">זיהוי לפי קול</a></li>
                     <?php }?>
                  </ul>

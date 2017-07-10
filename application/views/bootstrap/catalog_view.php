@@ -2,12 +2,6 @@
     <!-- Page Content -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-            </div>
-        </div>
-        <!-- /.row -->
         <div class="row">
 
           <!-- Right Sidebar -->
@@ -50,14 +44,8 @@
                <!-- End Posts -->
 
                <!-- Tabs Widget -->
-               <div class="headline headline-md"><h2>מיון לפי</h2></div>
-               <?php
-              //  echo "<pre>";
-              //  var_dump($cat_type, $category->kingdom_id);
-              //  exit;
-              //  echo "</pre>";
-               ?>
-               <?php if($category->kingdom_id == 1 || $cat_type == 1) { ?>
+               <!-- <div class="headline headline-md"><h2>מיון לפי</h2></div> -->
+               <?php if($category->kingdom_id == 9 || $cat_type == 9) { ?>
                <div class="tab-v2 margin-bottom-40">
                    <ul class="nav nav-tabs">
                        <li class="active"><a data-toggle="tab" href="#home-1">השקיה <i class="fa fa-tint color-green"></i></a></li>
@@ -192,28 +180,36 @@
                <!-- End Photo Stream -->
 
                <!-- Blog Tags -->
-               <!-- <div class="headline headline-md"><h2>Blog Tags</h2></div>
+               <?php if($category->kingdom_id == 1 || $cat_type == 1) { ?>
+               <div class="headline headline-md"><h4>השקייה <i class="fa fa-tint color-blue"></i></h4></div>
                <ul class="list-unstyled blog-tags margin-bottom-30">
-                   <li><a href="#"><i class="fa fa-tags"></i> Business</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Music</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Internet</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Money</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Google</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> TV Shows</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Education</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> People</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> People</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Math</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Photos</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Electronics</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Apple</a></li>
-                   <li><a href="#"><i class="fa fa-tags"></i> Canada</a></li>
-               </ul> -->
+                   <li><a <?php if($sort_value == 'little') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/watering/little/1"><i class="fa fa-tint"></i> מועטה</a></li>
+                   <li><a <?php if($sort_value == 'some') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/watering/some/1"><i class="fa fa-tint"></i> בינונית</a></li>
+                   <li><a <?php if($sort_value == 'lot') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/watering/lot/1"><i class="fa fa-tint"></i> מרובה</a></li>
+                   <li><a <?php if($sort_value == 'no-dry') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/watering/no-dry/1"><i class="fa fa-tint"></i> רגיש ליובש</a></li>
+                   <li><a <?php if($sort_value == 'no-wet') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/watering/no-wet/1"><i class="fa fa-tint"></i> רגיש לעודף השקייה</a></li>
+               </ul>
+               <div class="headline headline-md"><h4>תנאי אור <i class="fa fa-sun-o color-yellow"></i></h4></div>
+               <ul class="list-unstyled blog-tags margin-bottom-30">
+                 <li><a <?php if($sort_value == 'full-shade') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/light_conditions/full-shade/1"><i class="fa fa-sun-o"></i> צל מלא</a></li>
+                 <li><a <?php if($sort_value == 'partly-shade') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/light_conditions/partly-shade/1"><i class="fa fa-sun-o"></i> צל חלקי</a></li>
+                 <li><a <?php if($sort_value == 'partly-sun') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/light_conditions/partly-sun/1"><i class="fa fa-sun-o"></i> שמש חלקית</a></li>
+                 <li><a <?php if($sort_value == 'full-sun') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/light_conditions/full-sun/1"><i class="fa fa-sun-o"></i> שמש מלאה</a></li>
+               </ul>
+               <div class="headline headline-md"><h4>צבע הפרח <i class="fa fa-paint-brush color-red"></i></h4></div>               <ul class="list-unstyled blog-tags margin-bottom-30">
+                 <li><a <?php if($sort_value == 'red') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/flower_color/red/1"><i class="fa fa-paint-brush"></i> אדום</a></li>
+                 <li><a <?php if($sort_value == 'pink') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/flower_color/pink/1"><i class="fa fa-paint-brush"></i> ורוד</a></li>
+                 <li><a <?php if($sort_value == 'orange') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/flower_color/orange/1"><i class="fa fa-paint-brush"></i> כתום</a></li>
+                 <li><a <?php if($sort_value == 'white') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/flower_color/white/1"><i class="fa fa-paint-brush"></i> לבן</a></li>
+                 <li><a <?php if($sort_value == 'purple') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/flower_color/purple/1"><i class="fa fa-paint-brush"></i> סגול</a></li>
+                 <li><a <?php if($sort_value == 'yellow') { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesSorted/<?php echo $catalog; ?>/plant_properties/flower_color/yellow/1"><i class="fa fa-paint-brush"></i> צהוב</a></li>
+               </ul>
+               <?php } ?>
                <!-- End Blog Tags -->
            </div>
            <!-- End Right Sidebar -->
 
-          <div class="col-md-9" style="text-align: center">
+          <div class="col-md-9" style="text-align: center; min-height:700px">
 
           <!-- Search Results Section -->
           <?php

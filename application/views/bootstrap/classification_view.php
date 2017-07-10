@@ -12,7 +12,7 @@
                <?php
                foreach($all_orders as $order) {
                  if($kingdom == $order->kingdom_id) { ?>
-                    <li><a <?php if($current_order == $order) { ?> style="color:#61b714; font-weight:bold;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInOrder/<?php echo $order->id;?>"><i class="fa fa-tags"></i> <?php echo $order->name_he;?></a></li>
+                    <li><a <?php if($current_order == $order) { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInOrder/<?php echo $order->id;?>"><i class="fa fa-tags"></i> <?php echo $order->name_he;?></a></li>
                  <?php } } ?>
              </ul>
              <?php } ?>
@@ -24,7 +24,7 @@
                 <?php
                 foreach($all_families as $family) {
                   if($order->id == $family->order_id) { ?>
-                     <li><a <?php if($current_family == $family) { ?> style="color:#61b714; font-weight:bold;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInFamily/<?php echo $family->id;?>"><i class="fa fa-tags"></i> <?php echo $family->name_he;?></a></li>
+                     <li><a <?php if($current_family == $family) { ?> style="color:#61b714; border-bottom: solid 1px"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInFamily/<?php echo $family->id;?>"><i class="fa fa-tags"></i> <?php echo $family->name_he;?></a></li>
                   <?php } } ?>
               </ul>
               <?php } ?>
@@ -36,7 +36,7 @@
                <?php
                foreach($all_genus as $genus) {
                  if($family->id == $genus->family_id) { ?>
-                    <li><a <?php if($current_genus == $genus) { ?> style="color:#61b714; font-weight:bold;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInGenus/<?php echo $genus->id;?>"><i class="fa fa-tags"></i> <?php echo $genus->name_he;?></a></li>
+                    <li><a <?php if($current_genus == $genus) { ?> style="color:#61b714; border-bottom: solid 1px;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInGenus/<?php echo $genus->id;?>"><i class="fa fa-tags"></i> <?php echo $genus->name_he;?></a></li>
                  <?php } } ?>
              </ul>
              <?php } ?>
@@ -53,10 +53,10 @@
             <?php if($all_orders) { ?>
             <div class="headline headline-md"><h2><small>סדרת </small><a href=""><?php echo $current_order->name_he;?></a></h2></div>
             <ul class="list-unstyled blog-tags margin-bottom-40">
-              <?php
+              <?php if(count($families_in_order) > 1) {
               foreach($families_in_order as $family) { ?>
                    <li><a <?php if($current_family == $family) { ?> style="color:#61b714; font-weight:bold;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInFamily/<?php echo $family->id;?>"><i class="fa fa-tags"></i> <?php echo $family->name_he;?></a></li>
-                <?php  } ?>
+                <?php  } } ?>
             </ul>
             <?php } ?>
             <!-- End Families in Order -->
@@ -65,10 +65,10 @@
             <?php if($all_families) { ?>
             <div class="headline headline-md"><h2><small>משפחת </small><a href=""><?php echo $current_family->name_he;?></a></h2></div>
             <ul class="list-unstyled blog-tags margin-bottom-40">
-              <?php
+              <?php if(count($genus_in_family) > 1) {
               foreach($genus_in_family as $genus) { ?>
                    <li><a <?php if($current_genus == $genus) { ?> style="color:#61b714; font-weight:bold;"<?php } ?> href="<?php echo base_url();?>catalog/getSpeciesListInGenus/<?php echo $genus->id;?>"><i class="fa fa-tags"></i> <?php echo $genus->name_he;?></a></li>
-                <?php  } ?>
+                <?php  } } ?>
             </ul>
             <?php } ?>
             <!-- End Genus in Family -->

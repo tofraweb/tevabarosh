@@ -113,7 +113,7 @@ var OwlCarousel = function () {
                     }
                 }
             });
-			 
+
 
             //Owl Slider v5 fixed in v1.9
             jQuery(document).ready(function() {
@@ -162,7 +162,7 @@ var OwlCarousel = function () {
             /*jQuery(".owl-twitter-v1").owlCarousel({
                 singleItem : true,
                 slideSpeed : 1000,
-                autoPlay : 10000,              
+                autoPlay : 10000,
             });*/
 
 
@@ -235,7 +235,7 @@ var OwlCarousel = function () {
                 }
             });
 
-            
+
             //Owl Video
             jQuery(".owl-video").owlCarousel({
                 loop: true,
@@ -248,9 +248,9 @@ var OwlCarousel = function () {
                         items: 1
                     }
                 }
-            });            
+            });
 		}
-        
+
     };
-    
+
 }();
