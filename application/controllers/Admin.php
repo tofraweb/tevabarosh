@@ -27,7 +27,10 @@ class Admin extends CI_Controller {
 	public function _example_output($output = null, $title = 'ניהול')
 	{
 		$_SESSION['title'] = $title;
-		$this->load->view('admin_view.php',(array)$output);
+		//$this->load->view('admin_view.php',(array)$output);
+		$this->load->view('admin/header.php',(array)$output);
+		$this->load->view('admin/dynamic_content_view.php',(array)$output);
+		$this->load->view('admin/footer.php');
 	}
 
 	public function species()
