@@ -2,7 +2,7 @@
 Class Catalog_model extends CI_Model
 {
 
-    public function get_catalog_count($category = null, $search = null){
+    public function get_catalog_count($category = null, $search = null, $kingdom){
         try {
             $sql = " SELECT * FROM species";
             if(!empty($search)){
@@ -11,6 +11,9 @@ Class Catalog_model extends CI_Model
             }elseif(!empty($category)){
                 $sql .= " WHERE category_id = ? ";
                 $result = $this->db->query($sql, $category);
+            }elseif(!empty($kingdom)){
+                $sql .= " INNER JOIN categories ON categories.id = species.category_id WHERE categories.kingdom_id = ?";
+                $result = $this->db->query($sql, $kingdom);
             }else{
                 $result = $this->db->query($sql);
             }
@@ -26,20 +29,39 @@ Class Catalog_model extends CI_Model
 
     }
 
-    public function full_catalog_array($limit = null, $offset = 0){
-        try{
-            $sql = "SELECT id,name_he,name_lat,name_hu, category_id, picture
-      FROM species
-      ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
-            if(is_integer($limit)){
-                $sql .= " LIMIT ? OFFSET ? ";
-                $results = $this->db->query($sql,array($limit,$offset));
-            }else{
-                $results = $this->db->query($sql);
-            }
-        }catch(Exception $e){
-            echo "Unable to retrieve results";
-            exit;
+    public function full_catalog_array($limit = null, $offset = 0, $kingdom = 0){
+        if($kingdom){
+          try{
+              $sql = "SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, species.picture
+              FROM species
+              INNER JOIN categories ON categories.id = species.category_id
+              WHERE categories.kingdom_id = ?
+              ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
+              if(is_integer($limit)){
+                  $sql .= " LIMIT ? OFFSET ? ";
+                  $results = $this->db->query($sql,array($kingdom,$limit,$offset));
+              }else{
+                  $results = $this->db->query($sql,$kingdom);
+              }
+          }catch(Exception $e){
+              echo "Unable to retrieve results";
+              exit;
+          }
+        } else {
+          try{
+              $sql = "SELECT id,name_he,name_lat,name_hu, category_id, picture
+              FROM species
+              ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
+              if(is_integer($limit)){
+                  $sql .= " LIMIT ? OFFSET ? ";
+                  $results = $this->db->query($sql,array($limit,$offset));
+              }else{
+                  $results = $this->db->query($sql);
+              }
+          }catch(Exception $e){
+              echo "Unable to retrieve results";
+              exit;
+          }
         }
         $catalog = $results->result();
         return $catalog;

@@ -44,6 +44,14 @@ class Admin extends CI_Controller {
 		$this->_example_output($output, 'סדרה');
 	}
 
+	public function posts()
+	{
+		$output = $this->grocery_crud->render();
+
+		$this->_example_output($output, 'מאמרים');
+	}
+
+
 	public function pictures_management($id = null)
 	{
 		try{

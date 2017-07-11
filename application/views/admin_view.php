@@ -34,6 +34,7 @@ foreach($css_files as $file): ?>
 		<a href='<?php echo site_url('admin/audio_management')?>'>ניהול אודיו</a>|
 		<a href='<?php echo site_url('admin/update_species_pictures')?>'>עדכן תמונות מינים</a>|
 		<a href='<?php echo site_url('admin/bird_properties_management')?>'>ניהול מאפייני ציפורים</a>|
+		<a href='<?php echo site_url('admin/posts')?>'>מאמרים</a>|
 
 		<a href='<?php echo site_url('login/logout')?>'>יציאה</a>
 

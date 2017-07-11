@@ -5,12 +5,13 @@ class Catalog extends CI_Controller {
   public $pageTitle = '';
   public $subTitle = '';
   public $section = null;
-  public $items_per_page = 9;
+  public $items_per_page = 15;
   public $search = null;
   public $total_items = 0;
   public $current_page = 1;
   public $offset = 0;
   public $category = 0;
+  public $kingdom = 0;
 
   public function __construct()
   {
@@ -26,6 +27,7 @@ class Catalog extends CI_Controller {
       if(isset($_GET['cat'])){
 
           $this->category = $this->catalog_model->get_category_details($_GET['cat']);
+          $this->kingdom = $this->category->kingdom_id;
 
           switch ($_GET['cat']) {
             case '1':
@@ -54,6 +56,12 @@ class Catalog extends CI_Controller {
           }
 
       }
+
+      //kingdom
+      if(isset($_GET["kd"])){
+          $this->kingdom = $_GET["kd"];
+      }
+
       //search
       if(isset($_GET["s"])){
           $this->search = filter_input(INPUT_GET,"s", FILTER_SANITIZE_STRING);
@@ -75,12 +83,14 @@ class Catalog extends CI_Controller {
       $data['total_items'] = $this->total_items;
       $data['pageTitle'] = $this->pageTitle;
       if($this->total_items > $this->items_per_page){
+
         $data['pagination'] = $pagination_result['pagination'];
       }else{
         $data['pagination'] = null;
       }
       $data['catalog'] = $pagination_result['catalog'];
       $data['category'] = $this->category;
+      $data['kingdom'] = $this->kingdom;
       $this->load->view('inc/header');
       $this->load->view('bootstrap/catalog_view',$data);
       $this->load->view('inc/footer');
@@ -91,7 +101,7 @@ class Catalog extends CI_Controller {
     if($count){
       $this->total_items = $count;
     }else{
-      $this->total_items = $this->catalog_model->get_catalog_count($this->section,$this->search);
+      $this->total_items = $this->catalog_model->get_catalog_count($this->section,$this->search,$this->kingdom);
     }
 
     $total_pages = 1;
@@ -106,6 +116,8 @@ class Catalog extends CI_Controller {
             $limit_results = "s=".urlencode(htmlspecialchars($this->search))."&";
         }elseif(!empty($this->section)){
             $limit_results = "cat=".$this->section."&";
+        }elseif(!empty($this->kingdom)){
+            $limit_results = "kd=".$this->kingdom."&";
         }
         //redirect too-large page numbers to the last page
 
@@ -124,7 +136,7 @@ class Catalog extends CI_Controller {
         if(!empty($this->search)){
             $pagination_result['catalog'] = $this->catalog_model->search_catalog_array($this->search,$this->items_per_page,$this->offset);
         }elseif(empty($this->section)){
-            $pagination_result['catalog'] = $this->catalog_model->full_catalog_array($this->items_per_page,$this->offset);
+            $pagination_result['catalog'] = $this->catalog_model->full_catalog_array($this->items_per_page,$this->offset, $this->kingdom);
         }else{
             $pagination_result['catalog'] = $this->catalog_model->category_catalog_array($this->section,$this->items_per_page,$this->offset);
         }
@@ -143,6 +155,8 @@ class Catalog extends CI_Controller {
                 $pagination .= "s=".urlencode(htmlspecialchars($this->search))."&";
             }elseif(!empty($this->section)){
                 $pagination .= "cat=".$this->section."&";
+            }elseif(!empty($this->kingdom)){
+                $pagination .= "kd=".$this->kingdom."&";
             }
             $pagination .= "pg=$i'> $i </a></li>";
         }
@@ -378,7 +392,7 @@ class Catalog extends CI_Controller {
 
   }
 
-  public function getSpeciesSorted($species_to_sort, $table, $field, $value, $type){
+  public function getSpeciesSorted($table, $field, $value, $type){
     $species_id_array = $this->sorting_model->get_sorted_species_id_array($table, $field, $value);
     $id_array = array();
     foreach ($species_id_array as $id) {
@@ -387,17 +401,17 @@ class Catalog extends CI_Controller {
     $sorted_species = $this->catalog_model->get_species_by_id_array($id_array);
     // var_dump($sorted_species);
     // exit;
-    $species_count = count($species_list);
+    $species_count = count($sorted_species);
     $pagination_result = $this->setPagination($species_count);
 
     $data['search'] = $this->search;
     $data['section'] = $this->section;
     $data['total_items'] = $this->total_items;
     //$data['pageTitle'] = $this->pageTitle;
-    $data['pagination'] = null;
     $data['cat_type'] = $type;
     $data['catalog'] = $sorted_species;
     $data['sort_value'] = $value;
+    $data['kingdom'] = $this->kingdom;
     $this->load->view('inc/header');
     $this->load->view('bootstrap/catalog_view',$data);
     $this->load->view('inc/footer');

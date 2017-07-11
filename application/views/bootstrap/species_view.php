@@ -93,8 +93,11 @@
                      <li class="active"><a href="#taxonomy" data-toggle="tab">טקסונומיה</a></li>
                      <li><a href="#description" data-toggle="tab">תיאור כללי</a></li>
                      <?php if($category->kingdom_id == 2 && $audio) { ?>
-                     <li><a href="#identification-audio" data-toggle="tab">זיהוי לפי קול</a></li>
-                    <?php }?>
+                      <li><a href="#identification-audio" data-toggle="tab">זיהוי לפי קול</a></li>
+                     <?php }?>
+                     <?php if($category->kingdom_id == 2 && $video) { ?>
+                      <li><a href="#video" data-toggle="tab">סרטון</a></li>
+                     <?php }?>
                  </ul>
                  <div class="tab-content">
                      <div class="tab-pane fade in active" id="taxonomy">
@@ -236,6 +239,25 @@
                          </table>
                        </div>
                        <!--Audio Itentification -->
+                     </div>
+
+                     <div class="tab-pane fade in" id="video">
+                       <!--Video Section -->
+
+                       <?php if(!$is_mobile) { ?>
+                         <div class="responsive-video" style="margin-top:10px">
+                           <iframe width="100%" height="800"
+                            src="https://www.youtube.com/embed/<?php echo $video->filename;?>" frameborder="0" allowfullscreen>
+                           </iframe>
+                         </div>
+                         <?php } else { ?>
+                         <div class="responsive-video" style="margin-top:10px">
+                           <iframe width="100%"
+                            src="https://www.youtube.com/embed/<?php echo $video->filename;?>"  frameborder="0" allowfullscreen>
+                           </iframe>
+                         </div>
+                       <?php } ?>
+                       <!--End Video Section -->
                      </div>
                  </div>
              </div>
