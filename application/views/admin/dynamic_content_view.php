@@ -5,6 +5,9 @@
                 <a href="<?php echo base_url();?>admin"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
+                <a href="<?php echo site_url('admin/user_management')?>"><i class="fa fa-fw fa-user"></i> Users </a>
+            </li>
+            <li>
                 <a href="<?php echo site_url('admin/species_management')?>"><i class="fa fa-fw fa-cubes"></i> Species </a>
             </li>
             <li>

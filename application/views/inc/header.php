@@ -37,6 +37,9 @@
     <!-- CSS Page Style -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/css-rtl/pages/portfolio-v1-rtl.css">
 
+    <!-- CSS Page Style -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/css-rtl/pages/shortcode_timeline1-rtl.css">
+
     <!-- Style Switcher -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/plugins/style-switcher.css">
 
@@ -146,7 +149,7 @@
 
                     <!-- Blog -->
                     <li>
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="<?php echo base_url();?>blog/blog_timeline">
                             בלוג
                         </a>
                     </li>

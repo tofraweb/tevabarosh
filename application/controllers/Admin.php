@@ -51,9 +51,48 @@ class Admin extends CI_Controller {
 
 	public function posts()
 	{
-		$output = $this->grocery_crud->render();
 
-		$this->_example_output($output, 'Post', 'management');
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('posts');
+			$crud->set_subject('Post');
+			$crud->set_relation('author','users','fullname');
+			$crud->set_field_upload('picture','assets/img/media/upload/post');
+			$crud->callback_after_upload(array($this,'resize_img_after_upload'));
+
+			$output = $crud->render();
+
+			$this->_example_output($output, 'Post', 'management');
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+
+	}
+
+
+	public function user_management()
+	{
+
+		try{
+			$crud = new grocery_CRUD();
+
+			$crud->set_theme('datatables');
+			$crud->set_table('users');
+			$crud->set_subject('Users');
+			$crud->set_field_upload('picture','assets/img/media/upload/user');
+			$crud->callback_after_upload(array($this,'resize_img_after_upload'));
+
+			$output = $crud->render();
+
+			$this->_example_output($output, 'User', 'management');
+
+		}catch(Exception $e){
+			show_error($e->getMessage().' --- '.$e->getTraceAsString());
+		}
+
 	}
 
 
