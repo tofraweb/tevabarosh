@@ -79,7 +79,7 @@
                     <li class="topbar-devider"></li>
                     <!-- <li><a href="page_faq.html">שאלות ותשובות</a></li>
                     <li class="topbar-devider"></li> -->
-                    <li><a href="<?php echo base_url();?>admin">התחבר</a></li>
+                    <li><a href="<?php echo base_url();?>admin" target="_blank">אזור ניהול</a></li>
                 </ul>
             </div>
             <!-- End Topbar -->

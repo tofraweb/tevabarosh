@@ -93,7 +93,7 @@
                     <div class="col-md-6">
                         <p>
                             2017 &copy; כל הזכויות שמורות.
-                           <a href="http://tofraweb.com/">Developed by TofraWeb</a>
+                          <a href="http://tofraweb.com/">TofraWeb</a>  Developed by
                         </p>
                     </div>
 

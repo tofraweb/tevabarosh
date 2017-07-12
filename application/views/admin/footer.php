@@ -14,6 +14,20 @@
   <script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
 
+<div style="text-align:center; margin:20px 20px ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p style="color:#fff">
+                    2017 &copy; כל הזכויות שמורות.
+                   Developed by <a href="http://tofraweb.com/">TofraWeb</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div><!--/copyright-->
+
 </body>
 
 </html>

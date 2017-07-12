@@ -14,20 +14,22 @@ class Admin extends CI_Controller {
 	{
 		//$this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
 		if($this->session->userdata('logged_in')){
-			$session_data = $this->session->userdata('logged_in');
-			$data['username'] = $session_data['username'];
 			$this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
 		} else {
-			$data['section'] = null;
 			$this->load->view('login_view');
 		}
 
 	}
 
-	public function _example_output($output = null, $title = 'ניהול')
+	public function _example_output($output = null, $title = 'Data', $subtitle = 'management')
 	{
+		if(!$this->session->userdata('logged_in')){
+			redirect('admin', 'refresh');
+		}
 		$_SESSION['title'] = $title;
-		//$this->load->view('admin_view.php',(array)$output);
+		$_SESSION['subtitle'] = $subtitle;
+		$session_data = $this->session->userdata('logged_in');
+		$_SESSION['username'] = $session_data['username'];
 		$this->load->view('admin/header.php',(array)$output);
 		$this->load->view('admin/dynamic_content_view.php',(array)$output);
 		$this->load->view('admin/footer.php');
@@ -44,14 +46,14 @@ class Admin extends CI_Controller {
 	{
 		$output = $this->grocery_crud->render();
 
-		$this->_example_output($output, 'סדרה');
+		$this->_example_output($output, 'Order', 'management');
 	}
 
 	public function posts()
 	{
 		$output = $this->grocery_crud->render();
 
-		$this->_example_output($output, 'מאמרים');
+		$this->_example_output($output, 'Post', 'management');
 	}
 
 
@@ -76,7 +78,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'תמונות');
+			$this->_example_output($output, 'Picture', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -104,7 +106,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'אודיו');
+			$this->_example_output($output, 'Audio', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -125,7 +127,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'סרטון');
+			$this->_example_output($output, 'Video', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -147,7 +149,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'משפחה');
+			$this->_example_output($output, 'Family', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -169,7 +171,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'סוג');
+			$this->_example_output($output, 'Genus', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -202,7 +204,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'מינים');
+			$this->_example_output($output, 'Species', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -272,7 +274,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'אפיון צמחים');
+			$this->_example_output($output, 'Plant Properties', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -295,7 +297,7 @@ class Admin extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output, 'אפיון צמחים');
+			$this->_example_output($output, 'Bird Properties', 'management');
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
