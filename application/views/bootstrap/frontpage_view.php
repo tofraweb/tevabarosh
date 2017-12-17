@@ -14,7 +14,7 @@
 <!--=== Content Part ===-->
 <div class="container content-sm">
 		<!-- Recent Works -->
-		<div class="headline"><h2>על צמחים וציפורים</h2></div>
+		<div class="headline"><h2 id="myHeading">על צמחים וציפורים</h2></div>
 		<div class="row margin-bottom-20">
 				<div class="col-md-3 col-sm-6">
 						<div class="thumbnails thumbnail-style thumbnail-kenburn">
@@ -179,22 +179,22 @@
 		<!-- End Succulents Section -->
 
 		<!-- Service Blocks -->
-		<div class="row margin-bottom-30">
+<!-- 		<div class="row margin-bottom-30">
 				<div class="col-md-4">
 						<div class="service">
-								<i class="fa fa-compress service-icon"></i>
+								<i class="fa  fa-file-image-o service-icon"></i>
 								<div class="desc">
-										<h4>Fully Responsive</h4>
-										<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
+										<h4>צילומים מקוריים</h4>
+										<p>כל התמונות באתר הן תמונות שצולמו ע"י צוות האתר</p>
 								</div>
 						</div>
 				</div>
 				<div class="col-md-4">
 						<div class="service">
-								<i class="fa fa-cogs service-icon"></i>
+								<i class="fa  fa-leaf service-icon"></i>
 								<div class="desc">
-										<h4>HTML5 + CSS3</h4>
-										<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
+										<h4>צמחים שראינו וצילמנו</h4>
+										<p>כל הצמחים שמופיעים באתר הם רק כאלה שראינו שפגנו אותם בטבע וצילמנו אותם</p>
 								</div>
 						</div>
 				</div>
@@ -202,12 +202,12 @@
 						<div class="service">
 								<i class="fa fa-rocket service-icon"></i>
 								<div class="desc">
-										<h4>Launch Ready</h4>
-										<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
+										<h4>ציפורי ארץ ישראל</h4>
+										<p>הציפורים שצולמו הן הציפורים שראינו בארץ ישראל וצילמנו בעצמינו</p>
 								</div>
 						</div>
 				</div>
-		</div>
+		</div> -->
 		<!-- End Service Blokcs -->
 </div><!--/container-->
 

@@ -52,6 +52,17 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/css-rtl/custom-rtl.css">
+
+    <!-- Google Tracking Code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107710897-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-107710897-1');
+    </script>
+    <!-- Google Tracking Code end -->
 </head>
 
 <body>

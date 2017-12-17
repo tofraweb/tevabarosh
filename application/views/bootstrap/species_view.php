@@ -39,7 +39,7 @@
                     <img alt="" src="<?php echo base_url();?>assets/img/no-image.jpg">
                   <?php } ?>
                 </div>
-
+                <?php if(count($pictures)>1) { /*var_dump();exit;*/?>
                 <div class="carousel-arrow">
                     <a data-slide="prev" href="#myCarousel" class="left carousel-control">
                         <i class="fa fa-angle-left"></i>
@@ -47,7 +47,8 @@
                     <a data-slide="next" href="#myCarousel" class="right carousel-control">
                         <i class="fa fa-angle-right"></i>
                     </a>
-                </div>
+                </div> 
+                <?php } ?>
             </div>
             <!-- End Carousel -->
 
@@ -86,7 +87,7 @@
 
         <!-- Content Info -->
         <div class="col-md-6">
-
+          
             <!-- Tab v2 -->
              <div class="tab-v2" style="margin-bottom:30px">
                  <ul class="nav nav-tabs">
@@ -109,7 +110,7 @@
                            <table class="table table-striped table-hover">
                                <thead>
                                    <tr>
-                                       <th style="font-weight: bold;">שם</th>
+                                       <th style="font-weight: bold;">שםfff</th>
                                        <th><?php echo $species[0]->name_he;?></th>
                                        <th><?php echo $species[0]->name_lat;?></th>
                                        <th class="hidden-sm"><?php echo $species[0]->name_hu;?></th>
@@ -281,6 +282,7 @@
       <div class="headline"><h2>עוד מינים ממשפחת <a href="<?php echo base_url();?>catalog/getSpeciesListInFamily/<?php echo $family->id;?>"><?php echo $family->name_he;?></a></h2></div>
       <div class="owl-carousel-v2 margin-bottom-40">
           <div class="owl-slider-v4">
+            
             <?php foreach($species_in_family as $sp) { ?>
               <div class="item">
                 <a class="fancybox img-hover-v1" href="<?php echo base_url();?>index.php/catalog/getSpecies/<?php echo $sp->id;?>">

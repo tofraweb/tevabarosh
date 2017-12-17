@@ -1,6 +1,6 @@
 /* Add here all your css styles (customizations) */
 .img-catalog {
-  min-height: 170px !important;
+  min-height: 175px !important;
 }
 
 .progress-bar-watering{
@@ -13,4 +13,20 @@
   background-color: #cff760;
   padding-right: 5px;
   color: #555555 !important;
+}
+
+.tab-v2 .nav-tabs li a {
+    background: #fff;
+    padding: 7px 15px 9px;
+    border: solid 1px #eee;
+    border-top: solid 2px #eee;
+    border-bottom: none !important;
+}
+
+.nav-tabs>li>a {
+	margin-left: -1px;
+}
+
+a:hover{
+	text-decoration: none;
 }

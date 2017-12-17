@@ -32,10 +32,12 @@ Class Catalog_model extends CI_Model
     public function full_catalog_array($limit = null, $offset = 0, $kingdom = 0){
         if($kingdom){
           try{
-              $sql = "SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, species.picture
+              $sql = "SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, pictures.filename as picture
               FROM species
+              JOIN pictures ON species.id = pictures.species_id
               INNER JOIN categories ON categories.id = species.category_id
               WHERE categories.kingdom_id = ?
+              AND pictures.img_type_id = 1
               ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
               if(is_integer($limit)){
                   $sql .= " LIMIT ? OFFSET ? ";
@@ -71,10 +73,13 @@ Class Catalog_model extends CI_Model
         if($cat_id){
           try{ //pulling random species by category from the DB
               $results = $this->db->query(
-                  "SELECT id, name_he, name_lat, name_hu, category_id, description, picture
+                "SELECT species.id, species.name_he,species.name_lat,species.name_hu, species.category_id, species.description, pictures.filename as picture
                FROM species
+               JOIN pictures ON species.id = pictures.species_id
+               INNER JOIN categories ON categories.id = species.category_id
                WHERE category_id = '$cat_id'
                AND featuring = 'on'
+               AND pictures.img_type_id = 1
                ORDER BY RAND()
                LIMIT $limit"
                     );
@@ -84,9 +89,12 @@ Class Catalog_model extends CI_Model
         }else{
           try{ //pulling random species by category from the DB
               $results = $this->db->query(
-                  "SELECT id, name_he, name_lat, name_hu, category_id, description, picture
+                "SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, species.description, pictures.filename as picture
                FROM species
-               WHERE featuring = 'on'
+               JOIN pictures ON species.id = pictures.species_id
+               INNER JOIN categories ON categories.id = species.category_id
+               WHERE pictures.img_type_id = 1
+               AND featuring = 'on'
                ORDER BY RAND()
                LIMIT $limit"
                     );
@@ -101,10 +109,11 @@ Class Catalog_model extends CI_Model
     public function category_catalog_array($category, $limit = null, $offset = 0){
 
         try{
-            $sql = "SELECT id,name_he,name_lat,name_hu, category_id, picture
-      FROM species
-      WHERE category_id = ?
-      ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
+            $sql = "SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, pictures.filename as picture
+            FROM species
+            Join pictures ON species.id = pictures.species_id
+            WHERE pictures.img_type_id = 1 AND species.category_id = ?
+            ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
             if(is_integer($limit)){
                 $sql .= " LIMIT ? OFFSET ? ";
                 $results = $this->db->query($sql,array($category,$limit,$offset));
@@ -116,6 +125,8 @@ Class Catalog_model extends CI_Model
             exit;
         }
         $catalog = $results->result();
+        // var_dump($catalog);
+        // exit;
         return $catalog;
     }
 
@@ -125,11 +136,13 @@ Class Catalog_model extends CI_Model
     public function search_catalog_array($search, $limit = null, $offset = 0){
 
         try{
-            $sql = " SELECT id,name_he,name_lat,name_hu,category_id,picture
+            $sql = " SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, pictures.filename as picture
                 FROM species
-                WHERE name_he LIKE ?
+                Join pictures ON species.id = pictures.species_id
+                WHERE pictures.img_type_id = 1 
+                AND (name_he LIKE ?
                 OR name_lat LIKE ?
-                OR name_hu LIKE ?
+                OR name_hu LIKE ?)
                 ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
             if(is_integer($limit)){
                 $sql .= " LIMIT ? OFFSET ? ";
@@ -379,7 +392,11 @@ Class Catalog_model extends CI_Model
 
     public function getSpeciesListInGenus($id) {
       try{
-          $sql = "SELECT * FROM species WHERE genus_id = ?";
+          $sql = "SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, pictures.filename as picture
+          FROM species
+          Join pictures ON species.id = pictures.species_id
+          WHERE pictures.img_type_id = 1 AND species.genus_id = ?
+          ORDER BY REPLACE(REPLACE(REPLACE(name_he,'The ',''), 'An ' , ''), 'A ', '')";
           $result = $this->db->query($sql,$id);
         }catch(Exception $e){
             echo "Unable to retrieve results";
@@ -391,11 +408,12 @@ Class Catalog_model extends CI_Model
 
     public function get_species_by_id_array($id_array) {
       $in = join(',', $id_array);
-      // var_dump($in);
-      // exit;
       if(count($id_array) > 0){
         try{
-            $sql = "SELECT * FROM species WHERE id IN ($in)";
+            $sql = "SELECT species.id,species.name_he,species.name_lat,species.name_hu, species.category_id, pictures.filename as picture
+            FROM species
+            Join pictures ON species.id = pictures.species_id
+            WHERE pictures.img_type_id = 1 AND species.id IN ($in)"; 
             $result = $this->db->query($sql);
           }catch(Exception $e){
               echo "Unable to retrieve results";
@@ -408,24 +426,5 @@ Class Catalog_model extends CI_Model
       }
     }
 
-    // public function get_species_by_id_array($id_array) {
-    //   // var_dump($id_array);
-    //   // exit;
-    //   try{
-    //     $this->db->from('species');
-    //     $query = $this->db->where_in('id', $id_array);
-    //     // $result = $this->db->query($query);
-    //     //$query = $this->db->get('species');
-    //     var_dump($query->num_rows());
-    //     exit;
-    //     $species = $result->result();
-    //     return $species;
-    //     }catch(Exception $e){
-    //         echo "Unable to retrieve results";
-    //         exit;
-    //     }
-    //     //$species = $result->result();
-    //     //return $species;
-    // }
 
 }

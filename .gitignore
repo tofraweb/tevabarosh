@@ -8,6 +8,20 @@ application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
 
+assets/img/*
+assets/uploads/*
+
+application/views/bootstrap/catalog_view-old.php
+application/views/bootstrap/classification_view-old.php
+application/views/inc/header-old.php
+assets/js/study.js
+assets/plugins/parallax-slider/img/bg11.jpg
+assets/plugins/parallax-slider/img/bgw.jpg
+assets/vendor/
+BS-Unify-v1.9.9/*
+application/models/Catalog_model - Copy.php
+
+	
 composer.lock
 
 user_guide_src/build/*

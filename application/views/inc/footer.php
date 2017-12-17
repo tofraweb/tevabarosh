@@ -16,7 +16,19 @@
                         <div class="posts">
                             <div class="headline"><h2>מאמרים אחרונים</h2></div>
                             <ul class="list-unstyled latest-list">
+<!--                             <?php foreach($posts as $post) { ?>
                                 <li>
+                                    <a href="<?php echo base_url();?>blog/blog_item/<?php echo $post->id; ?>"><?php echo $post->title_he;?></a>
+                                    <small><?php echo $post->post_date;?></small>
+                                </li>                            
+                            <?php } ?> -->
+                            <?php $i=0; for($i=0;$i<3;$i++) { ?>
+                                <li>
+                                    <a href="<?php echo base_url();?>blog/blog_item/<?php echo $posts[$i]->id; ?>"><?php echo $posts[$i]->title_he;?></a>
+                                    <small><?php echo $posts[$i]->post_date;?></small>
+                                </li>                            
+                            <?php } ?>
+<!--                            <li>
                                     <a href="#">תוכן מעולה</a>
                                     <small>מאי 8, 2014</small>
                                 </li>
@@ -27,7 +39,7 @@
                                 <li>
                                     <a href="#">תנאים והגבלות</a>
                                     <small>ספטמבר 15, 2014</small>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div><!--/col-md-3-->
@@ -51,9 +63,8 @@
                         <address class="md-margin-bottom-40">
                             יצחק הלוי 9, חולון <br />
                             ישראל <br />
-                            טל: 800 123 3456 <br />
-                            פקס: 800 123 3456 <br />
-                            אימייל: <a href="mailto:info@tevabarosh.co.il" class="">info@tevabarosh.co.il</a>
+                            טל: 053-5203818 <br />
+                            אימייל: <a href="mailto:info@tevabarosh.co.il" class="">natureminded@gmail.com</a>
                         </address>
                     </div><!--/col-md-3-->
                     <!-- End Address -->
@@ -124,6 +135,8 @@
 <script src="<?php echo base_url();?>assets/js/plugins/owl-carousel-rtl.js"></script>
 <script src="<?php echo base_url();?>assets/js/plugins/style-switcher-rtl.js"></script>
 <script src="<?php echo base_url();?>assets/js/plugins/parallax-slider.js"></script>
+<!-- JS Study -->
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/study.js"></script>
 <script>
     jQuery(document).ready(function() {
         App.init();
